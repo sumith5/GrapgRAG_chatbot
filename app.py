@@ -83,22 +83,18 @@ class GraphBuilder():
 
 
 
-    def scrape_jina_ai(self,url,headers):
+    def scrape_jina_ai(self,url):
       """
       Uses the jina api for webscraping the prolifics about us site
       Args:
             url (str) : The website link
-            headers (dict) : To add the more features provided by jina api
       """
-      response = requests.get("https://r.jina.ai/" + url,headers=headers)
+      response = requests.get("https://r.jina.ai/" + url)
       return response
 
     def extract_scrape_content(self):
       url  = "website link"
-      headers={
-        "Authorization": "Bearer jina_b24725afd718414d8a140190a46c4586zeAO5zsMmMZmrBW-svcy1h8CoS4H"
-      }
-      content = self.scrape_jina_ai(url,headers)
+      content = self.scrape_jina_ai(url)
       print(content.text)
       path = "/content/scrape.txt"
       with open(path,'w') as f:
