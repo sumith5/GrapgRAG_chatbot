@@ -12,10 +12,10 @@ from langchain_openai import ChatOpenAI
 
 
 # Neo4j Client Setup
-os.environ["OPENAI_API_KEY"] = "sk-proj-FRFdl0GqnGJoosw8qQWBT3BlbkFJbGCIZT4FwMq4Xetatnel"
-os.environ["NEO4J_URI"] = "bolt://44.202.84.17:7687"
-os.environ["NEO4J_USERNAME"] = "neo4j"
-os.environ["NEO4J_PASSWORD"] = "architecture-mixes-component"
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["NEO4J_URI"] = ""
+os.environ["NEO4J_USERNAME"] = ""
+os.environ["NEO4J_PASSWORD"] = ""
 
 llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
@@ -94,7 +94,7 @@ class GraphBuilder():
       return response
 
     def extract_scrape_content(self):
-      url  = "https://prolifics.com/us/about-us"
+      url  = "website link"
       headers={
         "Authorization": "Bearer jina_b24725afd718414d8a140190a46c4586zeAO5zsMmMZmrBW-svcy1h8CoS4H"
       }
@@ -119,16 +119,6 @@ class GraphBuilder():
         print(text_docs)
         self.chunk_and_graph(text_docs)
 
-    def graph_text_documents(self, paths):
-        """
-        Provided with an array of text documents will extract and
-        graph each of them
-
-        Args:
-            paths (List): Document paths to extract and graph
-        """
-        for path in paths:
-            self.graph_text_content(path)
 
     def index_graph(self):
         """
